@@ -9,11 +9,11 @@ contract Token is ERC20 {
     //add minter changed event
     event MinterChanged(address indexed from, address to);
 
-    constructor() public payable ERC20("Your Decentralized Bank", "Sergivy") {
+    constructor() payable ERC20("Your Decentralized Bank", "Sergivy") {
         minter = msg.sender;
     }
 
-    function passMintRole(address dBank) public returns (bool) {
+    function passMinterRole(address dBank) public returns (bool) {
         require(minter == msg.sender, "Only owner can pass the minter role.");
         minter = dBank;
         emit MinterChanged(msg.sender, dBank);
