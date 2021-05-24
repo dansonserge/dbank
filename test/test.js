@@ -1,12 +1,15 @@
 import { tokens, ether, ETHER_ADDRESS, EVM_REVERT, wait } from './helpers'
 
+// eslint-disable-next-line no-undef
 const Token = artifacts.require('./Token')
+// eslint-disable-next-line no-undef
 const DecentralizedBank = artifacts.require('./dBank')
 
 require('chai')
   .use(require('chai-as-promised'))
   .should()
 
+// eslint-disable-next-line no-undef
 contract('dBank', ([deployer, user]) => {
   let dbank, token
   const interestPerSecond = 31668017 //(10% APY) for min. deposit (0.01 ETH)
@@ -46,7 +49,7 @@ contract('dBank', ([deployer, user]) => {
       })
     })
   })
-/* 
+
   describe('testing deposit...', () => {
     let balance
 
@@ -120,5 +123,5 @@ contract('dBank', ([deployer, user]) => {
         await dbank.withdraw({from: deployer}).should.be.rejectedWith(EVM_REVERT) //wrong user
       })
     })
-  }) */
+  }) 
 })
